@@ -1,0 +1,22 @@
+apply plugin: 'groovy'
+apply plugin: 'maven'
+
+group "com.zhang.plugin"
+version "1.0.0"
+
+dependencies {
+    compile gradleApi()
+    compile localGroovy()
+    //noinspection GradleDependency
+    compile "com.android.tools.build:gradle:3.2.1"
+    compile 'org.aspectj:aspectjrt:1.9.4'
+    compile "org.aspectj:aspectjtools:1.9.4"
+
+}
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            repository(url: uri('../repo'))
+        }
+    }
+}
